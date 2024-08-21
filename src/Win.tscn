@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgtpcuo3nc3v4"]
+
+[ext_resource type="Script" path="res://src/win.gd" id="1_r8uio"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ix2eb"]
+line_spacing = 6.0
+font_size = 200
+font_color = Color(0.440263, 0.874428, 7.70092e-07, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_r8uio")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.646
+anchor_bottom = 3.111
+offset_right = 2424.16
+offset_bottom = 1325.56
+color = Color(0.0118445, 0.00409499, 0, 0.596078)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 470.0
+offset_right = 1933.0
+offset_bottom = 784.0
+text = "Win !"
+label_settings = SubResource("LabelSettings_ix2eb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1110.0
+offset_top = 801.0
+offset_right = 1464.0
+offset_bottom = 878.0
+theme_override_colors/font_color = Color(0, 0.71265, 0.314732, 1)
+theme_override_font_sizes/font_size = 50
+text = "KAPAT"

@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=3 uid="uid://cpfx14dhx8px"]
+
+[ext_resource type="Script" path="res://src/charachters/MonsterTwo.gd" id="1_6pxit"]
+[ext_resource type="PackedScene" uid="uid://cp3tfn5rmh7uo" path="res://src/models/monster.blend" id="1_mr3c2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r13jh"]
+radius = 0.65
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ucnu"]
+albedo_color = Color(0.938239, 0, 0.245976, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5lvh2"]
+material = SubResource("StandardMaterial3D_1ucnu")
+radius = 0.65
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_su33d"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ahagp"]
+material = SubResource("StandardMaterial3D_su33d")
+radius = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xyv8"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_e4wiv"]
+material = SubResource("StandardMaterial3D_1xyv8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcm51"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qdrk3"]
+material = SubResource("StandardMaterial3D_vcm51")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhx2a"]
+albedo_color = Color(0.0495322, 0.0308018, 0.0106362, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_twhly"]
+material = SubResource("StandardMaterial3D_dhx2a")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_86cll"]
+
+[node name="MonsterTwo" type="CharacterBody3D"]
+script = ExtResource("1_6pxit")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_r13jh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_5lvh2")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.426025, -0.473339, 0)
+mesh = SubResource("SphereMesh_ahagp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.362927, 0.280029, 0.0044229)
+mesh = SubResource("SphereMesh_e4wiv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, -0.5896, 0.292664, 0)
+mesh = SubResource("SphereMesh_qdrk3")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.814331, 0.293941, -0.00807667)
+mesh = SubResource("SphereMesh_twhly")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.62939e-06, 0)
+shape = SubResource("CapsuleShape3D_86cll")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372784, 0.612863)
+light_color = Color(1, 0.238475, 0.40809, 1)
+light_energy = 1.885
+
+[node name="monster" parent="." instance=ExtResource("1_mr3c2")]
+transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, -0.0137477, -0.998261, -0.00621355)

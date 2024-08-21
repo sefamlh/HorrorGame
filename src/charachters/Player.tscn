@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnn5k84yyip4w"]
+
+[ext_resource type="AudioStream" uid="uid://cymsoro4fgjxj" path="res://src/soundEffects/background-horror-sound.mp3" id="1_7ydym"]
+[ext_resource type="Script" path="res://src/charachters/player.gd" id="1_ssc4s"]
+[ext_resource type="AudioStream" uid="uid://c2hq1ihjrtb88" path="res://src/soundEffects/step.mp3" id="3_72p2y"]
+[ext_resource type="AudioStream" uid="uid://bpyokuuq4fo10" path="res://src/soundEffects/breathing.mp3" id="3_c7ge8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mmppg"]
+radius = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5043"]
+albedo_color = Color(0.584807, 0.290344, 1.92523e-07, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xp25n"]
+material = SubResource("StandardMaterial3D_d5043")
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_ssc4s")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25392, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664143, 0)
+shape = SubResource("CapsuleShape3D_mmppg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_xp25n")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26062, 0)
+stream = ExtResource("1_7ydym")
+volume_db = 80.0
+
+[node name="BreathingSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26062, 0)
+stream = ExtResource("3_c7ge8")
+max_db = 0.0
+attenuation_filter_db = -42.5
+
+[node name="StepSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_72p2y")
+volume_db = 30.0
+
+[node name="StepTimer" type="Timer" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422306, -2.23245)
